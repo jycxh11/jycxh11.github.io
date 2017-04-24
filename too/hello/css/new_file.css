@@ -1,0 +1,50 @@
+body{
+	padding: 0;
+	margin: 0;
+}
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.menu{
+	height: 50px;
+	background: #49f;
+	margin: 20px 0;
+	box-shadow: 0 3px 20px 0 rgba(0,0,0,.5);
+}
+.menu ul{
+	list-style-type: none;
+	width: 600px;
+	padding: 0;
+	margin: auto;
+}
+.menu ul li{
+	float: left;
+	width: 199px;
+}
+.menu ul li:last-child{
+	border-right: 1px solid rgba(255,255,255,.5);
+}
+.menu ul li a i{
+	visibility:hidden;
+	transform: all .6s;
+}
+.menu ul li a{
+	display: inline-block;
+	height: 50px;
+	width: 199px;
+	line-height: 50px;
+	font-size: 18px;
+	color: white;
+	text-decoration: none;
+	text-indent: 25px;
+	border-left: 1px solid rgba(255,255,255,.5);
+	transition: all .6s;
+}
+a:hover{
+	box-shadow: 0 3px 10px 0 rgba(0,0,0,.5);
+}
+.menu ul li a i:hover{
+	visibility: visible;
+}
