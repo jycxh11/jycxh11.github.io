@@ -1,0 +1,36 @@
+body{
+	padding: 0;
+	margin: 0;
+}
+div{
+	margin: 20px 0;
+	height: 50px;
+	background-color: #49f;
+	box-shadow: 0px 3px 20px 0 rgba(0,0,0,.4);
+}
+ul{
+	width: 600px;
+	margin: auto;
+}
+.l{
+	float: right;
+	width: 148px;
+	line-height: 50px;
+	list-style: none;
+	border-left: 1px solid rgba(255,255,255,.5);
+	border-right: 1px solid rgba(255,255,255,.5);
+	text-indent: 20px;
+	transition: .5s;
+}
+a{
+	text-decoration: none;
+	font-size: 18px;
+	color: white;
+}
+.l:hover{
+	text-indent: 50px;
+	box-shadow: 0px 0px 20px 0 rgba(0,0,0,.4);
+}
+h1{
+	text-align: center;
+}
