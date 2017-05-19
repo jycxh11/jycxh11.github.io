@@ -1,0 +1,77 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: rgba(0,0,0,.2);
+}
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+header{
+	width: 1200px;
+	position: absolute;
+	position: fixed;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.top{
+	width: 1200px;
+	height: 50px;
+	margin: 20px auto;
+	position: relative;
+}
+.top img{
+	width: 50px;
+	height: 50px;
+	margin-left: 50px;
+}
+.top ul{
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	right: 0;
+	top: 0;
+	list-style-type: none;
+}
+.top ul li{
+	float: left;
+	display: inline-block;
+	width: 250px;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 12.5px;
+}.top ul li img{
+	position: absolute;
+	margin: 0;
+	display: inline-block;
+	width: 250px;
+	height: 50px;
+	border-radius:50%;
+	z-index: -1;
+	background-image: radial-gradient(circle at center,
+	rgba(0,0,0,0) 0%,
+	rgba(50,50,50,.1) 50%,
+	rgba(0,0,0,0) 60%,
+	rgba(0,0,0,0) 100%);
+	opacity: 0;
+	transition: all .5s;
+}
+.top ul li a{
+	position: absolute;
+	text-align: center;
+	display: inline-block;
+	width: 250px;
+	height: 50px;
+	line-height: 50px;
+	text-decoration: none;
+	color: white;
+	/*font-weight: bold;*/
+	font-family: "STXinwei";
+	font-size: 24px;
+	
+}
+.top ul li a:hover~img{
+	opacity: 1;
+}
