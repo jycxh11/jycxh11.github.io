@@ -120,3 +120,74 @@ header p a{
 .ul-2 li img:hover{
 	-webkit-filter: brightness(.5);
 }
+.contact label:nth-child(2n){
+	display: inline-block;
+	width: 80px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+	background-color: white;
+}
+.contact label:nth-of-type(3){
+	margin-left: 30px;
+}
+.contact label:nth-child(2n+1){
+	display: inline-block;
+	padding: 0 30px;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+	background-color: black;
+	color: white;
+}
+.contact form input{
+	width: 400px;
+	height: 32px;
+	border: none;
+	text-indent: 1em;
+	margin: 20px 10px 20px 0;
+	border-radius: 4px;
+	outline: none;
+}
+.contact form input:focus{
+	box-shadow: 0 0 5px 1px rgba(0,0,0,.8) inset;
+}
+.contact form select{
+	width: 300px;
+	height: 32px;
+	border: none;
+	margin-right: 50px;
+	border-radius: 4px;
+}
+.contact form textarea{
+	margin: 0 50px 0 0;
+	text-indent: 1em;
+}
+.contact form input:nth-of-type(3){
+	height: 50px;
+	background-color: rgba(240,160,0,1);
+	color: white;
+	font-size: 16px;
+	position: relative;
+	top: -17px;
+	cursor: pointer;
+	transition: all .5s;
+}
+.contact form input:nth-of-type(3):focus{
+	box-shadow: none;
+	background-color: rgba(240,160,0,.5);
+}
+#gotop{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	display: block;
+	text-decoration: none;
+	color: white;
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
+	border: 2px solid #fff;
+}
