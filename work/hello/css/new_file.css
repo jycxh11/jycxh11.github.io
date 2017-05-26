@@ -18,7 +18,6 @@ body{
 }
 .wrapper header img{
 	width: 80px;
-	height: auto;
 	margin: 50px 0;
 }
 ul{
@@ -61,7 +60,7 @@ header p a{
 	font-weight: 500;
 	border-bottom: 1px dashed #fff;
 }
-.ul-1 li{
+.ul-taste li{
 	width: 160px;
 	height: 50px;
 	line-height: 50px;
@@ -73,10 +72,10 @@ header p a{
 	cursor: pointer;
 	transition: all .5s;
 }
-.ul-1 li:hover{
+.ul-taste li:hover{
 	background-color: rgba(255,255,255,.3);
 }
-.ul-1 li a{
+.ul-taste li a{
 	display: block;
 	width: 160px;
 	height: 50px;
@@ -84,14 +83,14 @@ header p a{
 	color: black;
 	font-weight: bold;
 }
-.ul-2 li{
+.ul-img li{
 	width: 300px;
 	height: 200px;
 	float: left;
 	margin: 30px calc(300px/6);
 	position: relative;
 }
-.ul-2 li p{
+.ul-img li p{
 	position: absolute;
 	margin: 0;
 	padding: 0;
@@ -108,16 +107,16 @@ header p a{
 	font-weight: bold;
 	transition: .8s;
 }
-.ul-2 li:hover p{
+.ul-img li:hover p{
 	width: 120px;
 }
-.ul-2 li img{
+.ul-img li img{
 	width: 100%;
 	height: 100%;
 	-webkit-filter: brightness(1);
 	transition: all .5s;
 }
-.ul-2 li img:hover{
+.ul-img li img:hover{
 	-webkit-filter: brightness(.5);
 }
 .contact label:nth-child(2n){
