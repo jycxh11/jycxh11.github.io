@@ -1,0 +1,66 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+/**********************导航栏************************/
+header{
+	padding: 20px 0;
+}
+.container{
+	position: relative;
+	max-width: 1200px;
+	height: 60px;
+	margin: auto;
+}
+.logo a{
+	display: block;
+	width: 250px;
+	height: 60px;
+	line-height: 60px;
+	text-decoration: none;
+}
+.logo a img{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+.logo a span{
+	color: black;
+	font-size: 48px;
+	font-family: 'Dancing Script', cursive;
+	position: absolute;
+	left: 60px;
+}
+.topcontainer ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+}	
+.topcontainer ul li{
+	float: left;
+	width: 100px;
+	height: 60px;
+}
+.topcontainer ul li a{
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	width: 100px;
+	height: 60px;
+	line-height: 60px;
+	color: black;
+}
+
+/*************************首页部分********************/
+.banner{
+	background-image: url(../img/banner.jpg);
+}
