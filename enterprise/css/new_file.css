@@ -1,7 +1,6 @@
 body{
 	margin: 0;
 	padding: 0;
-	font-family: simhei;
 }
 .clearfix::after{
 	content: "";
@@ -64,6 +63,7 @@ header.on{
 }	
 .topcontainer ul li{
 	float: left;
+	font-family: "微软雅黑";
 }
 .topcontainer ul li a{
 	text-align: center;
@@ -81,6 +81,7 @@ header.on{
 .banner{
 	background-image: url(../img/banner.jpg);
 	height: 800px;
+	font-family: "微软雅黑";
 }
 .banner .container{
 	max-width: 800px;
@@ -106,4 +107,29 @@ header.on{
 	text-shadow: none;
 	padding: 4px;
 	color: black;
+}
+/***************************关于部分**************************/
+.about{
+	padding: 50px 0;
+}
+.about .container{
+	text-align: center;
+}
+.about .container h2{
+	font-family: "微软雅黑";
+	text-align: center;
+}
+.about .container>p{
+	padding-bottom: 50px;
+}
+.about .container .img{
+	width: 49%;
+	float: left;
+}
+.about .container .img img{
+	width: 100%;
+	height: 100%;
+}
+.about .container .note p{
+	
 }
