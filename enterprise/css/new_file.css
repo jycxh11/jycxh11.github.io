@@ -15,6 +15,18 @@ ul{
 	padding: 0;
 	list-style-type: none;
 }
+section h2{
+	font-family: "微软雅黑";
+	text-align: center;
+	padding-top: 50px;
+}
+section h2+p{
+	text-align: center;
+	padding-bottom: 50px;
+}
+section{
+	line-height: 2;
+}
 /*************************google字体****************************/
 @font-face {
   font-family: 'Dancing Script';
@@ -44,7 +56,6 @@ header.on{
 .container{
 	max-width: 1200px;
 	margin: auto;
-	padding: 1px;
 }
 .logo a{
 	height: 60px;
@@ -80,7 +91,8 @@ header.on{
 /*************************首页部分********************/
 .banner{
 	background-image: url(../img/banner.jpg);
-	height: 800px;
+	background-size: cover;
+	padding: 50px 0;
 	font-family: "微软雅黑";
 }
 .banner .container{
@@ -109,27 +121,47 @@ header.on{
 	color: black;
 }
 /***************************关于部分**************************/
-.about{
-	padding: 50px 0;
-}
 .about .container{
-	text-align: center;
-}
-.about .container h2{
-	font-family: "微软雅黑";
-	text-align: center;
-}
-.about .container>p{
-	padding-bottom: 50px;
+	padding-bottom: 60px;
 }
 .about .container .img{
-	width: 49%;
+	width: 48%;
 	float: left;
 }
 .about .container .img img{
 	width: 100%;
 	height: 100%;
 }
-.about .container .note p{
-	
+.about .container .note{
+	width: 48%;
+	float: right;
+}
+.about .container .note p:nth-child(1){
+	margin-top: 0;
+}
+.about .container .note li{
+	cursor: pointer;
+	list-style: none;
+	counter-increment: counter-li;
+}
+.about .container .note ul{
+	counter-reset: counter-li;
+}
+.about .container .note li:before{
+	content: counter(counter-li);
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	line-height: 20px;
+	text-align: center;
+	border: 1px dashed #000;
+	border-radius: 20px;
+}
+/***************************我们的服务**************************/
+.service{
+	min-height: 600px;
+	background: url(../img/banner2.jpg);
+	background-size: cover;
+	color: white;
+	/*text-shadow: 1px 1px 1px rgba(0,0,0,.5);*/
 }
