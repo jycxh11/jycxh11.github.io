@@ -156,6 +156,11 @@ header.on{
 	text-align: center;
 	border: 1px dashed #000;
 	border-radius: 20px;
+	margin-right: 14px;
+	transition: transform .3s;
+}
+.about .container .note li:hover:before{
+	transform: translate(10px);
 }
 /***************************我们的服务**************************/
 .service{
