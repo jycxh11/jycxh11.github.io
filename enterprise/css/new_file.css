@@ -24,7 +24,8 @@ section h2+p{
 	text-align: center;
 	padding-bottom: 50px;
 }
-section{
+p,
+li{
 	line-height: 2;
 }
 /*************************google字体****************************/
@@ -165,8 +166,60 @@ header.on{
 /***************************我们的服务**************************/
 .service{
 	min-height: 600px;
-	background: url(../img/banner2.jpg);
+	background: url(../img/banner2.jpg) center center no-repeat;
 	background-size: cover;
 	color: white;
-	/*text-shadow: 1px 1px 1px rgba(0,0,0,.5);*/
+	box-shadow: inset 0 0 100px 20px rgba(0,0,0,.3);
+}.service>.container{
+	padding-bottom: 50px;
+}
+.service .container li{
+	width: 48%;
+	min-height: 140px;
+	float: left;
+	text-align: right;
+	cursor: pointer;
+}
+.service .container li:nth-child(2n){
+	float: right;
+	text-align: left;
+}
+.service .container li:hover i{
+	transform: scale(1.2);
+	color: #339BEB;
+}
+.service .container li h3{
+	display: inline-block;
+	margin: 0;
+}
+.service .container li i{
+	display: inline-block;
+	transition: all .3s;
+	float: right;
+	padding: 10px 0px 10px 20px;
+}
+.service .container li:nth-child(2n) i{
+	float: left;
+	padding: 10px 20px 10px 0px;
+}
+/***************************成功案例**************************/
+.case .container{
+	max-width: 1200px;
+}
+.case .container .content figure{
+	position: relative;
+	width: 24%;
+	margin: 8px 12px 8px 0;
+	float: left;
+}
+.case .container .content figure img{
+	width: 100%;
+}
+.case .container .content figure figcaption{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90%;
+	height: 40%;
+	background-color: rgba(255,255,255,.8);
 }
