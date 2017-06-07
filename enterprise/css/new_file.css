@@ -209,17 +209,115 @@ header.on{
 .case .container .content figure{
 	position: relative;
 	width: 24%;
+	height: 366px;
 	margin: 8px 12px 8px 0;
 	float: left;
+	overflow: hidden;
+}
+.case .container .content figure:hover img{
+	transform: scale(1.2) rotate(3deg);
 }
 .case .container .content figure img{
 	width: 100%;
+	transition: transform .5s;
 }
 .case .container .content figure figcaption{
 	position: absolute;
-	top: 0;
+	right: 0;
 	left: 0;
-	width: 90%;
-	height: 40%;
+	margin: auto;
+	bottom: 20px;
+	width: 86%;
+	min-height: 50%;
 	background-color: rgba(255,255,255,.8);
+	padding: 8px;
+}
+.case .container .content figure figcaption p{
+	display: block;
+	font-size: 12px;
+	width: 88%;
+	min-height: 40px;
+	margin: auto;
+	margin-top: 30px;
+}
+.case .container .content figure figcaption h3{
+	width: 60%;
+	margin: 0 0 0 15px;
+	display: inline-block;
+	height: 48px;
+	vertical-align:top;
+	line-height: 48px;
+}
+.case .container .content figure figcaption .time{
+	width: 24%;
+	height: 48px;
+	text-align: center;
+	background-color: #339BEB;
+	display: inline-block;
+}
+.case .container .content figure figcaption .time .year{
+	height: 24px;
+	line-height: 24px;
+}
+.case .container .content figure figcaption .time .month{
+	background-color: rgba(0,0,0,.1);
+	height: 24px;
+	line-height: 24px;
+}
+.case .container .content figure figcaption .data{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.2);
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	text-align: right;
+}
+/***************************联系我们**************************/
+.contact{
+	background: url(../img/android-1869510_1920.jpg);
+	background-size: cover;
+	color: white;
+}
+.contact .container{
+	width: 1200px;
+	padding-bottom: 50px;
+}
+.contact .container .left{
+	width: 48%;
+	float: left;
+}
+.contact .container .left i{
+	padding-right: 10px;
+}
+.contact .container .right{
+	width: 48%;
+	float: right;
+}
+.contact .container .right input,
+.contact .container .right textarea{
+	width: 100%;
+	height: 40px;
+	margin: 10px 0 10px 0;
+	border-radius: 4px;
+	outline: none;
+	background-color: rgba(255,255,255,.5);
+	border: none;
+	text-indent: 1em;
+	color: #000000;
+}
+::-webkit-input-placeholder{
+	color: #000;
+}
+::-moz-placeholder{
+	color: #000;
+}
+.contact .container .right textarea{
+	height: 50px;
+	margin-bottom: 15px;
+}
+/***************************footer**************************/
+.footer p{
+	text-align: center;
 }
