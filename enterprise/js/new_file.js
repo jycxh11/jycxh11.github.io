@@ -27,6 +27,6 @@ $(function(){
 	//设置单击菜单动画跳转
 	$('header a').on('click', function(e) {
 		e.preventDefault();
-		$('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top-60}, 500);
+		$('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top-59}, 500);
 	});
 });

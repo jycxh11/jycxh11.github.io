@@ -122,6 +122,9 @@ header.on{
 	color: black;
 }
 /***************************关于部分**************************/
+.about{
+	padding: 1px;
+}
 .about .container{
 	padding-bottom: 60px;
 }
@@ -203,6 +206,9 @@ header.on{
 	padding: 10px 20px 10px 0px;
 }
 /***************************成功案例**************************/
+.case{
+	padding: 1px;
+}
 .case .container{
 	max-width: 1200px;
 }
