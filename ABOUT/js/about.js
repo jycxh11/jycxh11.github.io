@@ -1,3 +1,6 @@
+$(function() {
+					Carousel.init($(".pictureSlider"));
+				});
 ;(function($){
 
 	var Carousel = function(poster){
