@@ -1,10 +1,12 @@
 body{
 	margin: 0;
 	padding: 0;
-	background: url(../img/1497582574633.jpg) top center no-repeat;
 	background-size: 100%;
-	background-color: #000;
+	background-color: rgb(255,255,255);
 	
+}
+main{
+	background: url(../img/1497582574633.jpg) top center no-repeat;
 }
 *{
 	box-sizing: border-box;
@@ -34,7 +36,51 @@ header .logo img{
 	vertical-align: middle;
 	width: 60px;
 	height: auto;
+	cursor: pointer;
+	border-radius: 100%;
+	transition: box-shadow 1s;
 }
+header .logo img:nth-of-type(1):hover{
+	-webkit-animation: logo 2s;
+	animation: logo 2s;
+	box-shadow: 0 0 15px 8px rgba(252,220,47,.8);
+}
+@-webkit-keyframes logo{
+	20%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,.2);
+	}
+	30%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,0);
+	}
+	40%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,.5);
+	}
+	50%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,0);
+	}
+	100%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,.8);
+	}
+	
+}
+@keyframes logo{
+	20%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,.2);
+	}
+	30%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,0);
+	}
+	40%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,.5);
+	}
+	50%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,0);
+	}
+	100%{
+		box-shadow: 0 0 15px 8px rgba(252,220,47,.8);
+	}
+}
+
 header .logo img:nth-of-type(2){
 	width: 200px;
 }
@@ -45,6 +91,8 @@ header .logo span{
 }
 header {
 	width: 1200px; 
+	height: 80px;
+	line-height: 80px;
 	margin: 10px auto;
 }
 header.on{
@@ -57,8 +105,28 @@ header .logo{
 header nav {
 	width: 650px;
 	float: right;
-	margin: 23px 0px 0px 0px;
+	margin: 0;
 	text-align: right;
+	position: relative;
+}
+#k{
+	display: block;
+	position: absolute;
+	bottom: 18px;
+	left: 65px;
+	width: 140px;
+	height: 5px;
+	background-color: #FAD65C;	
+	transition: .5s;
+}
+header nav a:nth-of-type(2):hover~#k{
+	left: 215px;
+}
+header nav a:nth-of-type(3):hover~#k{
+	left: 360px;
+}
+header nav a:nth-of-type(4):hover~#k{
+	left: 510px;
 }
 header nav a{
 	position: relative;
@@ -70,6 +138,7 @@ header nav a{
 .menu a span:first-child{
 	z-index: 2;
 	display: block;
+	height: 60px;
 }
 .menu a span:last-child{
 	z-index: 1;
@@ -86,7 +155,8 @@ header nav a{
 	text-align: center;
 }
 .menu>a span{
-	color: rgba(255,255,255,.9);
+	color: rgba(0,0,0,.9);
+	font-family: "微软雅黑";
 }
 .menu a:hover span:last-child, .topnav a:focus span:last-child{
 	opacity: 1; -webkit-transform: translateY(0%);
@@ -101,7 +171,7 @@ header nav a{
 	color: #FFF;
 	line-height: 1.9;
 	margin: 9px 0;
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(0,0,0,.5);
 }
 .home ul {
 	width: 900px;
@@ -283,6 +353,17 @@ opacity:1;
 	width: 100%;
 	height:300px;	
 	background-color: #121212;
+	background: url(../img/1497582249276.jpg) center center no-repeat;
+	position: relative;
+}
+.contact .center{
+	width: 100%;
+	height: 400px;
+	background-color: rgba(0,0,0,.5);
+}
+.contact .center .lx{
+	width: 1200px;
+	margin: auto;
 }
 .contact .lx span{
 	margin: auto;
@@ -353,7 +434,7 @@ footer a{
 
 .about .container{
 	width: 100%;
-	height: 500px;
+	height: 470px;
 	margin: auto;
 	color: rgba(255,255,255,.9);
 }
