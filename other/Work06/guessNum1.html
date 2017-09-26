@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.clearfix {
+				display: block;
+				clear: both;
+				content: "";
+			}
+			
+			div {
+				width: 215px;
+				margin: auto;
+			}
+			
+			#input {
+				width: 225px;
+				margin: auto;
+			}
+			
+			input {
+				float: left;
+				outline: none;
+			}
+			
+			h3 {
+				margin-top: 200px;
+				margin-bottom: 20px;
+				text-align: center;
+			}
+			
+			#otext {
+				height: 25px;
+				border-radius: 12px 0 0 12px;
+				border: 1px solid #000;
+				text-indent: .5em;
+			}
+			
+			#obtn {
+				height: 29px;
+				border-radius: 0 12px 12px 0;
+				border: 1px solid #aaa;
+				background: #eee;
+				cursor: pointer;
+			}
+			
+			#input_2 {
+				width: 80px;
+				height: 80px;
+				position: absolute;
+				bottom: 10px;
+				left: 10px;
+			}
+			
+			#obtn_2,
+			#obtn_3 {
+				border: 1px solid #aaa;
+				background: #eee;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="input_2">
+			<input type="button" name="obtn_2" id="obtn_2" value="返回" onclick="window.location.href='index.html'"/><br><br>
+			<input type="button" name="obtn_3" id="obtn_3" value="重来" onclick="location.reload(false)"/>
+		</div>
+		<h3>猜数字游戏</h3>
+		<div id="input" class="clearfix">
+			<input type="text" name="text" id="otext" placeholder="0-10之间的整数，6次机会" onkeyup="this.value=otext.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=otext.value.replace(/[^0-9]/g,''" maxlength="10" />
+			<input type="button" name="obtn" id="obtn" value="提交" />
+		</div>
+		<div id="time">
+			剩余次数：6
+		</div>
+		<div id="info">
+			猜测历史：
+		</div>
+		<script type="text/javascript">
+			var oText = document.getElementById("otext");
+			var oBtn = document.getElementById("obtn");
+			var inFo = document.getElementById("info");
+			var iTime = document.getElementById("time");
+			var iNum = Math.floor(Math.random() * 11);
+			var tNum;
+			var time = 6;
+			console.log("1:" + iNum);
+
+			oBtn.onclick = function() {
+				tNum = oText.value;
+				if(tNum == "") {
+					return true;
+				}
+				if(tNum > iNum) {
+					inFo.innerHTML += "<br>本次输入的是：" + tNum + ",偏大!";
+				} else if(tNum < iNum) {
+					inFo.innerHTML += "<br>本次输入的是：" + tNum + ",偏小!";
+				} else {
+					inFo.innerHTML += "<br>恭喜猜对，答案是" + iNum + "!";
+					oBtn.disabled = true;
+				}
+				oText.value = "";
+				time -= 1;
+				iTime.innerHTML = "剩余次数：" + time;
+				if(time == 0) {
+					inFo.innerHTML += "<br>次数用完，游戏失败!";
+					oBtn.disabled = true;
+				}
+			}
+
+			var oBtn_2 = document.getElementById("obtn_2");
+			var oBtn_3 = document.getElementById("obtn_3");
+		</script>
+	</body>
+
+</html>
