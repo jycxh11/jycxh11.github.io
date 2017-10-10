@@ -14,6 +14,9 @@
 		</style>
 	</head>
 	<body>
+		<div style="font-size: 50px;">
+			距离今天结束：
+		</div>
 		<div id="text">
 			
 		</div>
@@ -21,9 +24,9 @@
 			Clock();
 			function Clock(){
 				var MyTime = new Date();
-				var h = MyTime.getHours();
-				var m = MyTime.getMinutes();
-				var s = MyTime.getSeconds();
+				var h = 24 - MyTime.getHours();
+				var m = 60 - MyTime.getMinutes();
+				var s = 60 - MyTime.getSeconds();
 				document.getElementById("text").innerHTML = h + ":" + checkTime(m) + ":" + checkTime(s);
 			}
 			function checkTime(num){
