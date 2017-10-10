@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#text{
+				width: 600px;
+				font-size: 150px;
+				text-align: right;
+				margin: auto;
+				padding: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="text">
+			
+		</div>
+		<script type="text/javascript">
+			Clock();
+			function Clock(){
+				var MyTime = new Date();
+				var h = MyTime.getHours();
+				var m = MyTime.getMinutes();
+				var s = MyTime.getSeconds();
+				document.getElementById("text").innerHTML = h + ":" + checkTime(m) + ":" + checkTime(s);
+			}
+			function checkTime(num){
+				if(num < 10){
+					num = "0" + num;
+				}
+				return num;
+			}
+			setInterval(Clock,1000);
+		</script>
+	</body>
+</html>
