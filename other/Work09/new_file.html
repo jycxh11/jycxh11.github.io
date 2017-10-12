@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<h1 class="title">Title</h1>
+		<h3 class="text">
+			var&nbsp;oH1&nbsp;=&nbsp;document.querySelector(".title");<br />
+			var&nbsp;oH2 &nbsp;= &nbsp;document.querySelector(".text");<br /><br />
+			
+			function &nbsp;readText(ele,speed,loop){<br />
+				var &nbsp;oText &nbsp;= &nbsp;ele;<br />
+				var s&nbsp;tr &nbsp;= &nbsp;oText.innerText;<br />
+				var &nbsp;i &nbsp;= &nbsp;0;<br />
+				var &nbsp;loop &nbsp;= &nbsp;loop &nbsp;|| &nbsp;false;<br />
+				oText.innerText &nbsp;= &nbsp;"";<br /><br />
+				
+				var &nbsp;a &nbsp;= &nbsp;setInterval(function(){<br />
+					if(i &nbsp;< str[i];<br />
+					}else{<br />
+						if(loop){<br />
+							i &nbsp;= &nbsp;-1;<br />
+							oText.innerText = "";<br />
+						}else{<br />
+							clearInterval(a);<br />
+						}<br />
+					}<br />
+					i++;<br />
+				},speed);<br /><br />
+				
+			}<br /><br />
+			
+			readText(oH1,100);<br />
+			readText(oH2,250,true);<br />
+		</h2>
+		<script type="text/javascript">
+			var oH1 = document.querySelector(".title");
+			var oH2 = document.querySelector(".text");
+			
+			function readText(ele,speed,loop){
+				var oText = ele;
+				var str = oText.innerText;
+				var i = 0;
+				var loop = loop || false;
+				oText.innerText = "";
+				
+				var a = setInterval(function(){
+					if(i < str.length){
+						oText.innerText += str[i];
+					}else{
+						if(loop){
+							i = -1;
+							oText.innerText = "";
+						}else{
+							clearInterval(a);
+						}
+					}
+					i++;
+				},speed);
+				
+			}
+			
+			readText(oH1,100);
+			readText(oH2,50,true);
+		</script>
+	</body>
+</html>
