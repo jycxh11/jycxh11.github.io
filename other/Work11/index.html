@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#one {
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+				text-align: center;
+			}
+			
+			#two {
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+				margin-top: -320px;
+				margin-left: 400px;
+				text-align: center;
+			}
+			
+			#three {
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+				margin-top: -320px;
+				margin-left: 800px;
+				text-align: center;
+			}
+			
+			#four {
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+				margin-top: -320px;
+				margin-left: 1200px;
+				text-align: center;
+				position: fixed;
+			}
+			
+			#four p {
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--鼠标事件-->
+		<h1 id="one">单击</h1>
+		<h1 id="two">双击</h1>
+		<h1 id="three">按下或松开</h1>
+		<div id="four">
+			<h1 id="four_text">滑动滚轮</h1>
+		</div>
+
+		<script>
+			//			
+			var oOne = document.getElementById("one");
+			var oTwo = document.getElementById("two");
+			var oThree = document.getElementById("three");
+			var oFour = document.getElementById("four");
+			var oText = document.getElementById("four_text");
+
+			oOne.onclick = function() {
+				oOne.innerHTML = "已经单击";
+			}
+
+			oTwo.ondblclick = function() {
+				oTwo.style.backgroundColor = "red"
+			}
+
+			oThree.onmousedown = function() {
+				oThree.innerHTML += "已经按下";
+			}
+			oThree.onmouseup = function() {
+				oThree.innerHTML += "已经松开";
+			}
+
+			oFour.onmousewheel = function() {
+				var zoom = parseInt(oText.style.zoom, 10) || 100;
+				zoom += event.wheelDelta / 12;
+				console.log(zoom);
+				if(zoom > 0) oText.style.zoom = zoom + '%';
+				return false;
+
+			}
+		</script>
+	</body>
+
+</html>
