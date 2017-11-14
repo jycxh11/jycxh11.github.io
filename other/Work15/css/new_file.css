@@ -1,0 +1,53 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+.menu {
+	border-collapse: collapse;
+}
+
+.menu tr,
+td,
+th {
+	width: 150px;
+	height: 60px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.table {
+	width: 600px;
+	margin: auto;
+}
+
+.news {
+	width: 240px;
+	height: 240px;
+	margin: auto;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.news .text {
+	margin: 8px 0;
+}
+
+#add {
+	margin-top: 20px;
+	background-color: dodgerblue;
+	border: none;
+	width: 100px;
+	height: 30px;
+	cursor: pointer;
+	outline: none;
+	transition: .3s;
+}
+
+#add:hover {
+	transform: scale(1.2);
+}

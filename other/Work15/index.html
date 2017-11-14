@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>节点</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+				width: 150px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="child">
+			<ul class="menu">
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var oUl = document.querySelector('.menu');
+
+			for(var i = 0; i < 10; i++) {
+				add(i + 1);
+			}
+
+			var oLi = document.querySelectorAll('.menu li');
+			console.log(oLi.length);
+
+			for(var i = 0; i < oLi.length; i++) {
+				oLi[i].style.backgroundColor = "rgba(" + (255 - i * 25) + "," + (255 - i * 25) + "," + (255 - i * 25) + ",.3)";
+			}
+
+			function add(e) {
+				var node = document.createElement('li');
+				node.innerHTML = "<a href=" + "#" + ">" + e + "</a>";
+				oUl.appendChild(node);
+			}
+			
+		</script>
+	</body>
+
+</html>
