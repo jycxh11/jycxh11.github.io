@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		
+			.window{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 0;
+				background-color: #dddddd;
+				overflow: hidden;
+				transition: all .5s;
+				z-index: 999;
+			}
+			
+			.content{
+				position: relative;
+				margin: auto;
+				margin-top: 150px;
+				width: 270px;
+				height: 300px;
+				background-color: #ffffff;
+			}
+			
+			#btn{
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#" id="btn_1">打开模拟窗口</a>
+		<div class="window">
+			<div class="content">
+				模拟窗口
+				<input type="button" id="btn_2" value="关闭" />
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oWin = document.querySelector('.window');
+			var oBtn_1 = document.querySelector('#btn_1');
+			var oBtn_2 = document.querySelector('#btn_2');
+			
+			oBtn_1.addEventListener('click',open);
+			oBtn_2.addEventListener('click',close);
+			
+			function open(){
+				oWin.style.width = document.documentElement.clientWidth + "px";
+				oWin.style.height = document.documentElement.clientHeight + "px";
+			}
+			
+			function close(){
+				oWin.style.width = 0;
+				oWin.style.height = 0;
+			}
+		</script>
+	</body>
+</html>
