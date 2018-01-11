@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://jycxh11.github.io/other/Work23/js/intense.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://jycxh11.github.io/other/Work23/js/intense.js" type="text/javascript" charset="utf-8"></script>
+
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				background-size: cover;
+				width: 100%;
+				height: 100%;
+			}
+			
+			h1 {
+				width: 200px;
+				margin: auto;
+				margin-top: 250px;
+				cursor: pointer;
+			}
+			
+			.container {
+				width: 760px;
+				min-height: 400px;
+				margin: 150px auto;
+				background-color: rgba(255, 255, 255, .8);
+			}
+			
+			.container img {
+				border: 5px solid #eee;
+				box-shadow: 1px 5px 10px rgba(0, 0, 0, .3);
+				margin: 5% 0 5% 6%;
+				display: inline-block;
+				cursor: url(https://jycxh11.github.io/other/Work23/img/plus_cursor.png), pointer;
+				width: 300px;
+				height: 300px;
+				background-size: cover;
+				background-position: 50% 50%;
+			}
+			
+			.demo-image.first {
+				background-image: url("https://jycxh11.github.io/other/Work23/img/h1_small.jpg");
+			}
+			
+			.demo-image.third {
+				background-image: url("https://jycxh11.github.io/other/Work23/img/v1_small.jpg");
+			}
+			
+			#menu {
+				display: none;
+				opacity: 0;
+			}
+			
+			#menu .close {
+				position: relative;
+				right: -1200px;
+				top: 150px;
+				transform: rotate(45deg);
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="title">
+			<h1>图片全屏效果</h1>
+		</div>
+		<div id="menu">
+			<img src="https://jycxh11.github.io/other/Work23/img/plus_cursor.png" class="close" />
+			<div class="container">
+				<img class="demo-image first" data-image="https://jycxh11.github.io/other/Work23/img/h1_small.jpg" />
+				<img class="demo-image third" data-image="https://jycxh11.github.io/other/Work23/img/v1_small.jpg" />
+			</div>
+		</div>
+		<script>
+			var close = document.querySelector('.close');
+			var menu = document.querySelector('#menu');
+			var h1 = document.querySelector('h1');
+
+			close.addEventListener('click', function() {
+				menu.style.display = 'none';
+				menu.style.opacity = 0;
+				h1.style.display = 'block';
+				h1.style.opacity = 1;
+			});
+
+			h1.addEventListener('click', function() {
+				h1.style.display = 'none';
+				h1.style.opacity = 0;
+				menu.style.display = 'block';
+				menu.style.opacity = 1;
+			})
+
+			window.onload = function() {
+				var element = document.querySelectorAll('.demo-image');
+				Intense(element);
+			}
+		</script>
+	</body>
+
+</html>
