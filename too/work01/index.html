@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>序号</th>
+					<th>名称</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>小计</th>
+				</tr>
+				<tr v-for="(item,index) in fruits">
+					<td>{{index+1}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.price}}</td>
+					<td><input type="number" min="0" :max="item.max" v-model="item.num"/></td>
+					<td>{{item.price*item.num}}</td>
+				</tr>
+				<tr>
+					<td colspan="4">总计</td>
+					<td>{{getMoney()}}</td>
+				</tr>
+			</table>
+		</div>
+		
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data: {
+					fruits: [{
+						name: '苹果',
+						price: 45,
+						num: 6,
+						max: 130
+					},{
+						name: '香蕉',
+						price: 65,
+						num: 8,
+						max: 85
+					}]
+				},
+				methods: {
+					getMoney: function(){
+						var sum = 0;
+						for(i in this.fruits){
+							sum += this.fruits[i].price*this.fruits[i].num;
+						}
+						return sum;
+					}
+				}
+			});
+//			
+//			function Number(e,number,max){
+//				if(!/^\d+$/.test(number)){
+//					e.value = /^\d+/.exec(e.value);
+//				}
+//				return false;
+//			}
+		</script>
+	</body>
+</html>
