@@ -37,14 +37,14 @@
 	<body>
 		<div class="tabs">
 			<div class="tabItems clearfix">
-				<div class="item" v-for="(item,index) in tabs" @click="onClick(index)">{{item}}</div>
+				<div class="item" v-for="(item,index) in tabs" v-on:click="onClick(index)">{{item}}</div>
 			</div>
 			<div class="tabContents">
 				<div class="content" v-for="(item,index) in tabContents" v-show="currentItem == index">{{item}}</div>
 			</div>
 		</div>
 		<script type="text/javascript">
-			var tabs = new Vue({
+			new Vue({
 				el: '.tabs',
 				data: {
 					tabs: ['新闻','通知','公告'],
