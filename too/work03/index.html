@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				box-sizing: border-box;
+			}
+			
+			#app {
+				width: 450px;
+				max-height: 500px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				overflow: hidden;
+				box-shadow: 0px 0px 6px rgba(0, 0, 0, .6);
+				padding: 30px;
+				background-color: #3399ff;
+				border: 10px solid #eeeeee;
+			}
+			
+			#app header {
+				color: #fff;
+				border-bottom: 1px solid #fff;
+			}
+			
+			#app header h1 {
+				margin: 0;
+			}
+			
+			#app input {
+				width: 100%;
+				border: none;
+				outline: none;
+				padding: 1rem;
+			}
+			
+			#app ul {
+				margin: 0;
+				padding: 0;
+				max-height: 300px;
+				overflow-y: auto;
+			}
+			
+			#app li {
+				list-style-type: none;
+				background-color: rgba(255, 255, 255, .5);
+				margin: .3rem 0;
+				padding: 0.5rem;
+				vertical-align: middle;
+				position: relative;
+			}
+			
+			#app li.flag {
+				text-decoration: line-through;
+				color: #666;
+			}
+			
+			#app li span {
+				position: absolute;
+				right: .5rem;
+				top: .4rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<div id="app">
+			<header>
+				<h1>备忘录</h1>
+				<p>利用vue实现的简单备忘录</p>
+			</header>
+			<input type="text" placeholder="添加事项" @keyup.enter="add" v-model="newText" />
+			<ul>
+				<li v-for="(item,index) in todos" :class="{flag:item.flag}">
+					{{index+1+'.&nbsp;&nbsp;'+item.title}}
+					<span>
+
+						<button :disabled="item.flag" @click="ok(index)">OK</button>
+
+						<button @click="remove(index)">Del</button>
+
+					</span>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var itemStorage = {
+				fetch: function(){
+					var todos = JSON.parse(localStorage.getItem('item') || '[]');
+					return todos;
+				},
+				save: function(todos){
+					localStorage.setItem('item', JSON.stringify(todos));
+				}
+			};
+			var app=new Vue({
+				el:"#app",
+				data:{
+					newText:'',
+					todos: itemStorage.fetch()
+				},
+				watch: {
+					todos: {
+						handler: function(val,oldVal){
+							itemStorage.save(val);
+						},
+						deep: true
+					}
+				},
+				methods:{
+					add:function(){
+						this.todos.push({
+							title:this.newText,
+							flag:false
+						})
+						this.newText='';
+					},
+					remove:function(i){
+						this.todos.splice(i,1);
+					},
+					ok:function(i){
+						this.todos[i].flag=true;
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>
