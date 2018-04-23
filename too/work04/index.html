@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>使用Element实现简单网页</title>
+		<!-- 引入样式 -->
+		<!--<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+		<link href="https://cdn.bootcss.com/element-ui/2.3.2/theme-chalk/index.css" rel="stylesheet">
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<style>
+			*{
+				color: rgba(0,0,0,.5);
+			}
+			body {
+				background: #D3CCE3;
+				background: linear-gradient(to right, #D3CCE3, #E9E4F0);
+				padding: 30px;
+				font-family: "微软雅黑";
+				display: flex;
+				justify-content: center
+			}
+			
+			.container {
+				min-height: 400px;
+				max-width: 1000px;
+				border: 10px solid rgba(0,0,0,.1);
+				margin: auto;
+				padding: 20px;
+				color: #fff;
+			}
+			
+			.header {
+				min-height: 100px;
+			}
+			
+			.header .logo,
+			.header .img {
+				/*border: 1px solid #fff;*/
+				/*min-height: 200px;*/
+			}
+			
+			.header .name {
+				margin: 0.5em 0;
+				font-size: 28px;
+			}
+			
+			.header .description {
+				margin-bottom: .5em;
+			}
+			
+			.header .link {
+				text-decoration: none;
+				color: #FDD283;
+			}
+			
+			.header .img {
+				overflow: hidden;
+			}
+			
+			.header .img img {
+				width: 100%;
+			}
+			
+			.menu:hover {
+				transition: all .5s;
+				color: #00f;
+				font-size: 1.5em;
+			}
+			/*
+				 在屏幕设备中，并且宽度介于100px-640px的设备中使用
+				 * */
+			/*@media only screen and (min-width: 100px) and (max-width: 640px) {
+				
+				body{
+					background: #dd0;
+				}
+			}*/
+			
+			.el-button.is-round {
+				padding: 23px;
+				border-radius: 100%;
+			}
+			
+			.skill {
+				position: relative;
+			}
+			
+			.skill::after {
+				content: attr(data-text);
+				position: absolute;
+				left: 35px;
+				top: 85px;
+				font-size: 0.8em;
+			}
+			p{
+				font-weight: 550;
+				font-size: 14px;
+			}
+			span{
+				font-weight: 550;
+				font-size: 17px;
+
+			}
+			.Img{
+				/*transform: scale(.3);*/
+				width: 50px;
+				position: relative;
+				top: -10px;
+			}
+			.content1{
+				min-height: 200px;
+			}
+			.content2{
+				min-height: 200px;
+			}
+			.content3{
+				min-height: 200px;
+			}
+			.con{
+				width: 50%;
+				height: 100px;
+			}
+			/*span{
+				position: relative;
+			}*/
+			.a{
+				width: 100%;
+			}
+			/*.like{
+				width: 25%;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<el-row class="container">
+				<el-col>
+					<el-row class="header " type="flex" justify="space-between" :gutter="20">
+						<el-col :xs="18" :sm="12" :md="14" :lg="12">
+							<div class="logo">
+								<h1 class="name">
+									{{ name }}
+								</h1>
+								<div class="description">
+									{{ description }}
+								</div>
+								<div class="links">
+									<a class="link" v-for="item in links" :href="item.lUrl"> {{ item.lName }} </a>
+								</div>
+							</div>
+						</el-col>
+						<el-col :xs="6" :sm="4">
+							<div class="img">
+								<img :src="imgUrl" alt="" style="border-radius: 100%;"/>
+							</div>
+						</el-col>
+					</el-row>
+					<el-row  class="content1" type="flex" justify="space-between" :gutter="50" >
+						<el-col :xs="12" :sm="12" :md="9" :lg="12" :span='12'>
+							<div class="card">
+								<h2>技能列表</h2>
+								<div>
+									<!--<el-progress class='skill' v-for="item in skills" :data-text="item.sName" :text-inside="true" :stroke-width="18" :percentage="item.sNum" :color="item.sColor"></el-progress>-->
+									<el-progress type="circle" class="skill" v-for="item in skills" :data-text="item.sName" :stroke-width="6" :percentage="item.sNum" :color="item.sColor" style="padding-top: 20px;padding-right: 10px;"></el-progress>
+								</div>
+							</div>
+						</el-col>
+						<el-col :xs="12" :sm="12" :md="9" :lg="12" :span='12'>
+							<h2>兴趣爱好</h2>
+							<div style="width: 445px;">
+								<!--<div class="a" v-for="item in likes">-->
+									<el-row class="a">
+										<el-col :xs="24" :sm="24" :md="12" :lg="12" :span='12'>
+											<el-row v-for="item in likes" style="height: 100px;">
+												<el-col :xs="8" :sm="8" :md="12" :lg="12" :span='12'><span class="like">{{item.lLike}}</span></el-col>
+												<el-col :xs="6" :sm="6" :md="12" :lg="12" :span='6'><div><img class="Img" :src="item.imgUrl"/></div></el-col>
+											</el-row>
+										</el-col>
+										<el-col :xs="24" :sm="24" :md="12" :lg="12" :span='12'>
+											<el-row v-for="item in likess" style="height: 100px;">
+												<el-col :xs="8" :sm="8" :md="12" :lg="12" :span='12'><span class="like">{{item.lLikes}}</span></el-col>
+												<el-col :xs="6" :sm="6" :md="12" :lg="12" :span='12'><div><img class="Img" :src="item.imgUrls"/></div></el-col>
+											</el-row>
+										</el-col>
+									</el-row>
+								<!--</div>-->
+									<!--<div class="con" v-for="item in likes" >-->
+										<!--<span class="like">{{item.lLike}}
+										<img class="Img" :src="item.imgUrl"/>
+										</span>-->
+										<!--<el-col :xs="18" :sm="18" :md="18" :lg="18" :span='12'><span class="like">{{item.lLike}}</span></el-col>
+  										<el-col :xs="6" :sm="6" :md="6" :lg="6" :span='12'><img class="Img" :src="item.imgUrl"/></el-col>-->
+<!--									</div>-->
+							</div>
+						</el-col>
+					</el-row>
+					<el-row class="content2" type="flex" justify="space-between" :gutter="50">
+						<el-col :xs="12" :sm="12" :md="9" :lg="12" :span="12">
+							<div class="describe">
+								<h2>项目经验</h2> 
+								<h4>{{describe1}}</h4> 
+								<h4>{{describe2}} </h4>
+								<h4>{{describe3}} </h4> 
+								<h4>{{describe4}}</h4>  
+							</div>
+						</el-col>
+						<el-col :xs="12" :sm="12" :md="9" :lg="12" :span="12">
+							<div class="glory">
+								<h2>获奖情况</h2> 
+								<h4>{{glory1}}</h4> 
+								<h4>{{glory2}} </h4>
+								<h4>{{glory3}} </h4> 
+								<h4>{{glory4}}</h4>  
+							</div>
+						</el-col>
+					</el-row>
+					<el-row class="content3" type="flex" justify="space-between" :gutter="20">
+						<el-col :xs="12" :sm="12" :md="9" :lg="24" :span="12">
+							<div class="myintroduce">
+								<h2>自我评价</h2> 
+								<p>{{p1}}</p>
+								<p>{{p2}}</p>
+							</div>
+						</el-col>
+						
+					</el-row>
+				</el-col>
+			</el-row>
+		</div>
+		<!-- 导入Vue -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<!-- 引入组件库 -->
+		<!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+		<script src="https://cdn.bootcss.com/element-ui/2.3.2/index.js"></script>
+		<script>
+			//基于Vue
+			var app = new Vue({
+				el: "#app",
+				data: {
+					name: "蒋轶聪",
+					description: "致力于提升自己的全栈学习者",
+					describe1:"Java Web 黑马商城 | 2017.4-2017.5",
+					describe2:"大学生外包服务竞赛 | 2018.4",
+					describe3:"参与ACE工作室 | 2017.10-至今",
+					describe4:"ACM竞赛 | 2017.11",
+					p1:"本人经验丰富、吃苦耐劳、热情随和、有较强的沟通能力和学习能力，积极、自信、主动、进取、有很强的团队意识和责任心，能充分理解和执行公司的生产策略并很好的完成各种指标和任务。",
+					p2:"对待工作认真负责，善于沟通、协调有较强的组织能力与团队精神；活泼开朗、乐观上进、有爱心并善于施教并行；上进心强、勤于学习能不断提高自身的能力与综合素质。",
+					
+					glory1:"大学生三等奖学金   | 2016-4",
+					glory2:"ACM竞赛三等奖  |  2017-11",
+					links: [{
+						lName: '作品集',
+						lUrl: 'https://github.com/LXJyy'
+					}, {
+						lName: 'Github主页',
+						lUrl: 'https://github.com/LXJyy'
+					}, {
+						lName: '邮箱',
+						lUrl: '765605629@qq.com'
+					}],
+					likes:[{
+						lLike:'旅行',
+						imgUrl:'img/1.png'
+					},{
+						lLike:'电影',
+						imgUrl:'img/2.png'
+					},{
+						lLike:'阅读',
+						imgUrl:'img/3.png'
+//					},{
+//						lLikes:'户外运动',
+//						imgUrls:'img/4.png'
+//					},{
+//						lLikes:'动漫',
+//						imgUrls:'img/4.png'
+//					},{
+//						lLikes:'代码',
+//						imgUrls:'img/4.png'
+					}
+					],
+					likess:[{
+						lLikes:'户外运动',
+						imgUrls:'img/4.png'
+					},{
+						lLikes:'动漫',
+						imgUrls:'img/3.png'
+					},{
+						lLikes:'编程',
+						imgUrls:'img/2.png'
+					}
+					],
+					imgUrl: 'img/p.jpg',
+					skills: [{
+						sName: '前端网页',
+						sNum: 88,
+						sColor: '#8e71c7'
+					},{
+						sName: '软件测试',
+						sNum: 75,
+						sColor: '#74A474'
+					}, {
+						sName: 'JavaScript',
+						sNum: 85,
+						sColor: 'rgb(32, 160, 255)'
+					}, {
+						sName: 'JavaWeb',
+						sNum: 90,
+						sColor: 'rgb(255, 73, 73)'
+					},{
+						sName: 'Photoshop',
+						sNum: 95,
+						sColor: '#72CFD7'
+					},{
+						sName: 'UI原型制作',
+						sNum: 88,
+						sColor: '#FFA500'
+					}],
+				},
+			});
+
+			//sass less CSS的预处理器，赋予CSS以编程语言的特性
+			//sass安装   gulp\webpack 自动化构建
+
+			//自动化建构工具（前端开发中一些经常性的、繁琐的处理工作，比如压缩文件、合并文件、编译文件）  grunt gulp webpack
+
+			//CSS布局方式
+			//传统布局方式   浮动 定位  盒模型   第二学期主要学的方式   操作繁琐、自定义性强
+			//最新布局技术   瀑布流、自定义的布局方式    兼容性问题（ https://caniuse.com/）
+			//Flexbox
+			//CSS Grid 系列
+			//网格布局方式（栅格系统）
+			//bootstrap、element等UI库
+			//960 Grid System等网格库
+
+			//响应式布局，为了实现多个终端设备共用网页，并且呈现不同的样式
+			//媒体查询 根据使用设备的某个属性判断设备，进而呈现不同的CSS
+			//@media
+
+			//提高网页性能的关键点    减少请求
+			//请求   100个js .3k   浏览器向服务器说，我要这个文件   服务器接受之后反应之后发送
+			//请求   1个js   30k
+
+			//设置打印样式
+
+			//图片图标，不能动态改变颜色、大小等样式，可扩展性不强
+			//icon图标
+			//用特殊字体实现图标效果
+			//本质上，特殊网络字体。  @font-face
+			//font-awesome
+		</script>
+	</body>
+
+</html>
